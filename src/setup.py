@@ -1,0 +1,23 @@
+import os
+from setuptools import find_packages, setup
+
+setup(
+    name=os.environ['PKG_NAME'],
+    version=os.environ['PKG_VERSION'],
+
+    description='Python data transformation project',
+
+    # Modify the author for this project
+    author='{{REPOSITORY_ORG_NAME}}',
+
+    packages=find_packages(exclude=['contrib', 'docs', 'test']),
+
+    # Instead, specify your dependencies in conda_recipe/meta.yml
+    install_requires=[],
+
+    entry_points={
+        'transforms.pipelines': [
+            'root = myproject.pipeline:my_pipeline'
+        ]
+    }
+)
